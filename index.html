@@ -1,43 +1,67 @@
 <html>
-<head>
-	<link href="styles.css" rel="stylesheet" type="text/css">
-	<script src="http://code.jquery.com/jquery.js"></script>
-	<script src="twfyapi.js"></script>
-  	<script src="quiz.js"></script>
-</head>
-<body>
-	<div id="page">
-		<div id="header-wrapper"> 
-			<div id="header">
-				<p> Handsards Quiz </p>
+	<head>
+		<link href="styles.css" rel="stylesheet" type="text/css"> 
+		<script src="http://code.jquery.com/jquery.js"></script>
+		<script src="twfyapi.js"></script>
+		<script src="quiz.js"></script>
+	</head>
+	<body>
+		<div id="page">
+			<div id="header-wrapper"> 
+				<div id="header">
+					<p> Handsards Matching Quiz </p>
+				</div>
 			</div>
-		</div>
-		<div class="hr"></div>
-		<div id="header2">
-			<div class="p2"> welcome to hansard quiz, text much text very cool wow much hip very filler. lorum ipsum such mainstream doge much cool filler text </div>
-		</div>
-
-		<div class="hr"></div>
-		<div id="pickone">
-			<div class="p3"> Pick a catagory </div>	
 			<div class="hr"></div>
-			<br><a href="#" id="category1"><div class="p2"> Devolution </div></a></br>
-			<div class="hr"></div>
-			<br><div class="p2"> Healthcare </div></br>
-			<div class="hr"></div>
-			<br><div class="p2"> Taxes </div></br>
-		</div>
+			<div id="header2">
+				<div class="p2"> 1 quote from a debate in Parliament, 3 debate titles. Which debate is the quote from? </div>
+			</div>
 
-		<div id="question">
-			<p id="quote"></p>
-			<a href="#" class="button" id="button1">TITLE 1</a></br></br>
-			<a href="#" class="button" id="button2">TITLE 2</a></br></br>
-			<a href="#" class="button" id="button3">TITLE 3</a>
-		</div>
-
-		<div id="end">
-			<div class="p2" id="finalScore"></div>
-			<div id="progressbar"></div>
-		</div>
-	</div>
-</body>
+			<div class="hr"></div>
+			</br>
+			<div id="pickone">
+				<div class="p3"> Pick a category </div>	
+				<div class="hr"></div>
+				<br><div class="p2"><a href="#" id="category1"> Devolution </a></div></br>
+				<div class="hr"></div>
+				<br><div class="p2"><a href="#" id="category2"> Healthcare </a></div></br>
+				<div class="hr"></div>
+				<br><div class="p2"><a href="#" id="category3"> Taxes </a></div></br>
+				<div class="hr"></div>
+				<br><div class="p2"><a href="#" id="category4"> Boris Johnson </a></div></br>
+			</div>
+			<div id="right">
+				<div class="p5"> Correct! </div>
+			</div>
+			<div id="wrong">
+				<div class="p3"> Wrong! </div>
+			</div>
+			<div id="question">
+				<p id="quote"></p>
+				<div id="Qnumber">
+					<span id="currentQs"></span>                        <span id="scoreCount"></span>
+				</div>
+				</br>
+				<div class="p2" id="option1"></div>
+				<br></br>
+				<div class="p2" id="option2"></div>
+				<br></br>
+				<div class="p2" id="option3"></div>
+				</br>
+				<div class="buttons">
+					<a href="#" class="button" id="button1">A</a>
+					<a href="#" class="button" id="button2">B</a>
+					<a href="#" class="button" id="button3">C</a>
+				</div>
+			</div>
+			
+			<div id="end">
+				<div class="p2" id="finalScore"></div>
+				<div id="progressbar">
+					<div id="progressbarInner"></div>
+				</div></br>
+				<a href="index.html">Restart quiz</a>
+			</div>
+		</div> 	
+	</body>
+</html>

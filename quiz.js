@@ -16,34 +16,56 @@ var score = 0;
 function init() {
 	$("#question").hide();
 	$("#end").hide();
+	$("#right").hide();
+	$("#wrong").hide();
 
 	$("#category1").click(function() {
-		$("#pickone").hide();
-		$("#question").show();
+		callAPI(1);
+	});
 
-		twfyapi.query("getHansard", {"output": "js", "callback": "hansards", "search": "devolution", "num": searchCount, "order": "d"});
+	$("#category2").click(function() {
+		callAPI(2);
+	});
+
+	$("#category3").click(function() {
+		callAPI(3);
+	});
+	$("#category4").click(function() {
+		callAPI(4);
 	});
 
 	$("#button1").click(function() {
-		if (correctButton == 1)
-			score++;
-
-		answerChosen();
+		buttonClick(1);
 	});
 
 	$("#button2").click(function() {
-		if (correctButton == 2)
-			score++;
-
-		answerChosen();
+		buttonClick(2);
 	});
 
-	$("#button2").click(function() {
-		if (correctButton == 2)
-			score++;
-
-		answerChosen();
+	$("#button3").click(function() {
+		buttonClick(3);
 	});
+}
+
+function callAPI(category) {
+	$("#pickone").hide();
+	$("#question").show();
+
+	twfyapi.query("getHansard", {"output": "js", "callback": "hansards", "search": $("#category" + category).text(), "num": searchCount, "order": "d"});
+}
+
+function buttonClick(button) {
+	if (correctButton == button) {
+		score++;
+
+		$("#right").show();
+		$("#wrong").hide();
+	} else {
+		$("#right").hide();
+		$("#wrong").show();
+	}
+
+	answerChosen();
 }
 
 function hansards(data) {
@@ -122,13 +144,14 @@ function hansards(data) {
 	for (var i = 0; i < contentQsArray.length; i++) {
 		sentences = contentQsArray[i].match(/[^\.!\?]+[\.!\?]+/g);
 
-		if (sentences == undefined)
-			sentencesArray[i][0] = contentQsArray[i];
-		else
+		try {
 			sentencesArray[i] = contentQsArray[i].match(/[^\.!\?]+[\.!\?]+/g);
 
-		for (var iInner = 0; iInner < sentencesArray[i].length; iInner++) {
-			sentencesArray[i][iInner] = sentencesArray[i][iInner].trim();
+			for (var iInner = 0; iInner < sentencesArray[i].length; iInner++) {
+				sentencesArray[i][iInner] = sentencesArray[i][iInner].trim();
+			}
+		} catch(err) {
+			sentencesArray[i] = new Array(contentQsArray[i].trim());
 		}
 	}
 
@@ -165,20 +188,37 @@ function showQuestion(i) {
 	// console.log(titleWrongQsArray[i][0]);
 	// console.log(titleWrongQsArray[i][1]);
 
+	$("#currentQs").text("Question: " + (i + 1) + "/10");
+	$("#scoreCount").text("Score: " + score + "/10");
+
 	correctButton = Math.ceil(Math.random()*3);
 
+	// if (correctButton == 1) {
+	// 	$("#quote").text($("#quote").html("A: " + titleQsArray[i]));
+	// 	$("#quote").text($("#quote").html("B: " + titleWrongQsArray[i][0]));
+	// 	$("#quote").text($("#quote").html("C: " + titleWrongQsArray[i][1]));
+	// } else if (correctButton == 2) {
+	// 	$("#quote").text($("#quote").html("A: " + titleWrongQsArray[i][0]));
+	// 	$("#quote").text($("#quote").html("B: " + titleQsArray[i]));
+	// 	$("#quote").text($("#quote").html("C: " + titleWrongQsArray[i][1]));
+	// } else if (correctButton == 3) {
+	// 	$("#quote").text($("#quote").html("A: " + titleWrongQsArray[i][0]));
+	// 	$("#quote").text($("#quote").html("B: " + titleWrongQsArray[i][1]));
+	// 	$("#quote").text($("#quote").html("C: " + titleQsArray[i]));
+	// }
+
 	if (correctButton == 1) {
-		$("#button1").text(titleQsArray[i]);
-		$("#button2").text(titleWrongQsArray[i][0]);
-		$("#button3").text(titleWrongQsArray[i][1]);
+		$("#option1").html("A: " + titleQsArray[i]).text();
+		$("#option2").html("B: " + titleWrongQsArray[i][0]).text();
+		$("#option3").html("C: " + titleWrongQsArray[i][1]).text();
 	} else if (correctButton == 2) {
-		$("#button1").text(titleWrongQsArray[i][0]);
-		$("#button2").text(titleQsArray[i]);
-		$("#button3").text(titleWrongQsArray[i][1]);
+		$("#option1").html("A: " + titleWrongQsArray[i][0]).text();
+		$("#option2").html("B: " + titleQsArray[i]).text();
+		$("#option3").html("C: " + titleWrongQsArray[i][1]).text();
 	} else if (correctButton == 3) {
-		$("#button1").text(titleWrongQsArray[i][0]);
-		$("#button2").text(titleWrongQsArray[i][1]);
-		$("#button3").text(titleQsArray[i]);
+		$("#option1").html("A: " + titleWrongQsArray[i][0]).text();
+		$("#option2").html("B: " + titleWrongQsArray[i][1]).text();
+		$("#option3").html("C: " + titleQsArray[i]).text();
 	}
 
 	$("#quote").text(sentencesArray[i][Math.ceil(Math.random()*sentencesArray[i].length) - 1]);
@@ -196,9 +236,12 @@ function answerChosen() {
 }
 
 function endGame() {
+	$("#right").hide();
+	$("#wrong").hide();
 	$("#question").hide();
 	$("#end").show();
-	$("#finalScore").text("You scored: " + score + "/10!")
+	$("#finalScore").text("You scored: " + score + "/10!");
+	$("#progressbarInner").css("width", score * 10 + "%");
 }
 
 window.onload = init;

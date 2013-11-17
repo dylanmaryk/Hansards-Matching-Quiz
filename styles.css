@@ -18,7 +18,15 @@ line-height: 1.1;
 font-size: 22px;
 line-height: 1.428571429;
 color: #D94033;
-font-weight: 500;
+font-weight: bolder;
+line-height: 1.1;
+} 
+.p5 {
+		font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+font-size: 22px;
+line-height: 1.428571429;
+color: #33CC33;;
+font-weight: bolder;
 line-height: 1.1;
 } 
 	
@@ -50,7 +58,7 @@ line-height: 1.1;
 #page {
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	overflow: hidden;
-	width: 1300px;
+	width: auto;
 	margin: 0px;
 	padding-left: 30px;
 	padding-right: 30px;
@@ -68,7 +76,7 @@ line-height: 1.1;
 
 #header {
 	font-family: "veranda";
-	width: 1200px;
+	width: auto;
 	margin: 0px;
 	padding-left: 30px;
 	padding-right: 30px;
@@ -89,7 +97,7 @@ line-height: 1.1;
 
 #header2 {
 	
-	width: 1200px;
+	width: auto;
 	padding-top: 25px;
 	padding-left: 30px;
 	padding-right: 30px;
@@ -134,30 +142,30 @@ line-height: 1.1;
 /* catagories */
 
 #pickone {
-	padding: 2px;
-	margin-top: 50px;
-	margin-left: 580px;
-	width: 150px;
+	padding: 4px;
+	width: 250px;
 	float:center;
-	margin-right: 600px;
 	border-style: solid;
 	border-width: 1px;
 	border-radius: 5px;
+	text-align: center;
+	display: block;
+	margin: 10px auto;
 }
 
 #question {
-	padding: 4px;
-	margin-top: 25px;
-	margin-left: 450px;
-	margin-right: 600px;
+	padding: 14px;
 	width: 412px;
 	border-style: solid;
 	border-width: 5px;
 	border-color: #D6F1FF;
 	border-radius: 5px;
+	display: block;
+	margin: 10px auto;
 }
 
 .button {
+	margin-top: 15px;
 	margin-right: 5px;
 	margin-left: 15px;
 	-moz-box-shadow:inset 0px 0px 0px 0px #bbdaf7;
@@ -206,15 +214,14 @@ line-height: 1.1;
 
 	
 #end {
-	padding: 4px;
-	margin-top: 25px;
-	margin-left: 450px;
-	margin-right: 600px;
+	padding: 14px;
 	width: 412px;
 	border-style: solid;
 	border-width: 5px;
 	border-color: #666666;
 	border-radius: 5px;
+	display: block;
+	margin: 10px auto;
 }
 
 #progressbar {
@@ -225,8 +232,94 @@ line-height: 1.1;
 }
 
 #progressbar > div {
-   background-color: grey;
-   width: 40%; /* Adjust with JavaScript */
+   background-color: gray;
+   /* width: 40%; */
    height: 20px;
    border-radius: 10px;
+}
+
+#Qnumber {
+	text-align: center;
+	padding-bottom: 20px;
+	/* border-right-style: solid;
+	border-right-width: 1px; 
+	/*padding-right: 50px; */
+}
+
+.p4 {
+	/* text-align: center;*/
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 10px; 
+	display:inline;
+	color: #808080;
+	font-weight: 500;
+	line-height: 1.1;
+	
+} 
+
+span {
+	text-align: center;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 15px; 
+	color: #525252;
+	font-weight: 500;
+	line-height: 1.25;
+	}
+
+#scoreCount {
+	text-align: center;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 15px; 
+	color: #525252;
+	font-weight: 500;
+	line-height: 1.25;
+	}
+
+#currentQs {
+	text-align: center;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 15px; 
+	color: #525252;
+	font-weight: 500;
+	line-height: 1.25;
+	}
+
+#right {
+	width: auto;
+	text-align: center;
+	/* border-style: solid;
+	border-width: 2px;
+	border-radius: 4.5px;
+	border-color: green; */
+	height: 60px;
+	padding-top: 40px;
+	padding-bottom: 00px;
+	}
+
+#wrong {
+	width: auto;
+	text-align: center;
+	/* border-style: solid;
+	border-width: 2px;
+	border-radius: 4.5px;
+	border-color: green; */
+	height: 60px;
+	padding-top: 40px;
+	padding-bottom: 00px;
+	}
+
+.buttons {
+	margin-left: -10px;
+	display: block;
+	text-align: center;
+}
+
+#quote {
+	margin-top: 0px;
 }
