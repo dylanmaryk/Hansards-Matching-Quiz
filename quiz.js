@@ -109,25 +109,6 @@ function hansards(data) {
 
 		if (!randomNumbersWrongLoop(randomNumber, found))
 			randomNumbersWrong[randomNumbersWrong.length - 1][1] = randomNumber;
-
-		// if (!randomNumbersWrongLoop(randomNumber, found)) {
-		// 	randomNumbersWrong[randomNumbersWrong.length - 1][0] = randomNumber;
-
-		// 	randomNumber = Math.ceil(Math.random()*searchCount) - 1;
-		// 	found = false;
-
-		// 	if (!randomNumbersWrongLoop(randomNumber, found)) {
-		// 		randomNumbersWrong[randomNumbersWrong.length - 1][1] = randomNumber;
-		// 	} else {
-		// 		randomNumbersWrong.pop();
-
-		// 		qsCountWrong++;
-		// 	}
-		// } else {
-		// 	randomNumbersWrong.pop();
-
-		// 	qsCountWrong++;
-		// }
 	}
 
 	qsCountWrong = qsCount * 2;
@@ -183,29 +164,10 @@ function randomNumbersWrongLoop(randomNumber, found) {
 }
 
 function showQuestion(i) {
-	// console.log(sentencesArray[i][Math.ceil(Math.random()*sentencesArray[i].length) - 1]);
-	// console.log(titleQsArray[i]);
-	// console.log(titleWrongQsArray[i][0]);
-	// console.log(titleWrongQsArray[i][1]);
-
 	$("#currentQs").text("Question: " + (i + 1) + "/10");
 	$("#scoreCount").text("Score: " + score + "/10");
 
 	correctButton = Math.ceil(Math.random()*3);
-
-	// if (correctButton == 1) {
-	// 	$("#quote").text($("#quote").html("A: " + titleQsArray[i]));
-	// 	$("#quote").text($("#quote").html("B: " + titleWrongQsArray[i][0]));
-	// 	$("#quote").text($("#quote").html("C: " + titleWrongQsArray[i][1]));
-	// } else if (correctButton == 2) {
-	// 	$("#quote").text($("#quote").html("A: " + titleWrongQsArray[i][0]));
-	// 	$("#quote").text($("#quote").html("B: " + titleQsArray[i]));
-	// 	$("#quote").text($("#quote").html("C: " + titleWrongQsArray[i][1]));
-	// } else if (correctButton == 3) {
-	// 	$("#quote").text($("#quote").html("A: " + titleWrongQsArray[i][0]));
-	// 	$("#quote").text($("#quote").html("B: " + titleWrongQsArray[i][1]));
-	// 	$("#quote").text($("#quote").html("C: " + titleQsArray[i]));
-	// }
 
 	if (correctButton == 1) {
 		$("#option1").html("A: " + titleQsArray[i]).text();
@@ -222,8 +184,6 @@ function showQuestion(i) {
 	}
 
 	$("#quote").text(sentencesArray[i][Math.ceil(Math.random()*sentencesArray[i].length) - 1]);
-
-	// console.log(score);
 }
 
 function answerChosen() {
